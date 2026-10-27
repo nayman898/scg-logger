@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scg-logger"
+version = "0.1.0"
+description = "A Windows serial logger for the Innovate SCG-1"
+readme = "README.md"
+requires-python = ">=3.13"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+dependencies = [
+    "PySide6-Essentials==6.10.0",
+    "pyserial==3.5",
+]
+
+[project.optional-dependencies]
+dev = ["ruff==0.14.2"]
+
+[project.gui-scripts]
+scg-logger = "scg_logger.__main__:main"
+
+[project.urls]
+Repository = "https://github.com/nayman898/scg-logger"
+Issues = "https://github.com/nayman898/scg-logger/issues"
+
+[tool.setuptools.packages.find]
+include = ["scg_logger*"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
